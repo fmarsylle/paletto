@@ -183,6 +183,9 @@ var Plateau = function () {
 
         if(player === 1) {
 
+             if (this.countPiece() === 0) {
+                 return true;
+             }
             var nb_black=0;
             for(var i=0;i<this.p1_piece.length;i++){
                 if(this.p1_piece[i] === BLACK_PIECE){
