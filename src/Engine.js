@@ -5,12 +5,18 @@ var WHITE_PIECE = 2;
 var BLUE_PIECE = 3;
 var YELLOW_PIECE = 4;
 var RED_PIECE = 5;
+var EMPTY_PIECE = null;
 
 var Plateau = function () {
     "use strict";
 
     this.plateau = [];
     this.selected_color=null;
+    this.joueur_actif = 1;
+    this.p1_piece= [];
+    this.p2_piece= [];
+    this.p3_piece= [];
+    this.p4_piece= [];
 
 
     this.init = function () {
@@ -111,7 +117,22 @@ var Plateau = function () {
     };
 
 
+    this.countPiece = function(){
 
+        var row = 0, col = 0, nb_piece=0;
+        while (row < 6 ) {
+            col = 0;
+            while (col < 6) {
+                if(this.plateau[row][col] != null){
+                    nb_piece++;
+                }
+                col++;
+            }
+            row++;
+        }
+        return nb_piece;
+
+    }
 
     this.get_selected_color = function (){
 
@@ -119,9 +140,33 @@ var Plateau = function () {
 
     };
 
+    this.get_case = function(row, col) {
+
+        return this.plateau[row][col];
+    }
+
     this.select_case = function(row, col) {
         this.selected_color = this.plateau[row][col];
+        this.plateau[row][col]=null;
+        if(this.joueur_actif==1){
+
+            this.p1_piece.push(this.selected_color);
+        }
+        else if(this.joueur_actif==2){
+
+            this.p2_piece.push(this.selected_color);
+        }
+        else if(this.joueur_actif==3){
+
+            this.p3_piece.push(this.selected_color);
+        }
+        else if(this.joueur_actif==4){
+
+            this.p4_piece.push(this.selected_color);
+        }
+
     }
+
 
 
         this.init();
