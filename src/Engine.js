@@ -165,9 +165,19 @@ var Plateau = function () {
             this.p4_piece.push(this.selected_color);
         }
 
-    }
+    };
 
 
+    this.change_player=function(){
+
+        if(this.joueur_actif!==4) {
+            this.joueur_actif++;
+        }else{
+
+            this.joueur_actif=1;
+        }
+
+    };
 
         this.init();
 
