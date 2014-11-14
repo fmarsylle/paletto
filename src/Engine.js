@@ -10,6 +10,8 @@ var Plateau = function () {
     "use strict";
 
     this.plateau = [];
+    this.selected_color=null;
+
 
     this.init = function () {
        this.plateau[0] = [];
@@ -111,6 +113,15 @@ var Plateau = function () {
 
 
 
+    this.get_selected_color = function (){
+
+            return this.selected_color;
+
+    };
+
+    this.select_case = function(row, col) {
+        this.selected_color = this.plateau[row][col];
+    }
 
 
         this.init();
