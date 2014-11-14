@@ -15,8 +15,7 @@ var Plateau = function () {
     this.joueur_actif = 1;
     this.p1_piece= [];
     this.p2_piece= [];
-    this.p3_piece= [];
-    this.p4_piece= [];
+
 
 
     this.init = function () {
@@ -148,11 +147,11 @@ var Plateau = function () {
     this.select_case = function(row, col) {
         this.selected_color = this.plateau[row][col];
         this.plateau[row][col]=null;
-        if(this.joueur_actif==1){
+        if(this.joueur_actif===1){
 
             this.p1_piece.push(this.selected_color);
         }
-        else if(this.joueur_actif==2){
+        else if(this.joueur_actif===2){
 
             this.p2_piece.push(this.selected_color);
         }
@@ -170,12 +169,36 @@ var Plateau = function () {
 
     this.change_player=function(){
 
-        if(this.joueur_actif!==4) {
-            this.joueur_actif++;
+        if(this.joueur_actif === 1) {
+            this.joueur_actif = 2;
         }else{
 
-            this.joueur_actif=1;
+            this.joueur_actif = 1;
         }
+
+    };
+
+
+    this.gagne= function(player){
+
+        if(player === 1) {
+
+            var nb_black=0;
+            for(var i=0;i<this.p1_piece.length;i++){
+                if(this.p1_piece[i] === BLACK_PIECE){
+                    nb_black++;
+
+                }
+
+            }
+            if(nb_black===6){
+                return true;
+            }
+
+
+        }
+
+        return false;
 
     };
 
