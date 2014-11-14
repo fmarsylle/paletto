@@ -27,3 +27,14 @@ PalettoTestCase.prototype.testStory4 = function () {
     p.select_case(5, 5);
     assertTrue( p.get_case(0,0) === null &&  p.get_case(5,5) === null );
 };
+
+PalettoTestCase.prototype.testStory5 = function () {
+
+    assertTrue( true);
+};
+
+
+PalettoTestCase.prototype.testStory6 = function () {
+    var p = new Plateau();
+    assertTrue( p1.gagne);
+};
