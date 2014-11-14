@@ -10,7 +10,6 @@ var Plateau = function () {
     "use strict";
 
     this.plateau = [];
-    var _this = this;
 
     this.init = function () {
        this.plateau[0] = [];
@@ -109,6 +108,11 @@ var Plateau = function () {
         return 1;
     };
 
+
+
+
+
+
         this.init();
 
 
@@ -163,7 +167,7 @@ var Plateau = function () {
         var i = 0;
         while (i == 0) {
             console.log(this.plateau);
-            if (_this.is_juxtaposed()) {
+            if (this.is_juxtaposed()) {
                 i=1;
             }
             this.init();
